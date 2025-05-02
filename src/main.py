@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.sessions import SessionMiddleware
+from utils.error.exception_handler import register_exception_handlers
 from src.routers import health_check
 from src.secret import MIDDLEWARE_SECRET_KEY
 
@@ -11,6 +12,8 @@ app = FastAPI(
     description="Backend service to integrate ERP with internal NAS.",
     version="1.0.0",
 )
+
+register_exception_handlers(app)
 
 app.add_middleware(
     CORSMiddleware,
