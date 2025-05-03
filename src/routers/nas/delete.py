@@ -29,7 +29,7 @@ async def delete_directory(schema: DeleteFolder) -> ResponseDefault:
 
 router.add_api_route(
     methods=["POST"],
-    path="/nas/delete",
+    path="/delete",
     endpoint=delete_directory,
     summary="Delete existing directory on NAS.",
     status_code=status.HTTP_200_OK,

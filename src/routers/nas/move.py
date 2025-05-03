@@ -31,7 +31,7 @@ async def move_directory(schema: MoveFolder) -> ResponseDefault:
 
 router.add_api_route(
     methods=["POST"],
-    path="/nas/move",
+    path="/move",
     endpoint=move_directory,
     summary="Move directory on NAS.",
     status_code=status.HTTP_200_OK,
