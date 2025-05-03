@@ -15,19 +15,16 @@ class NasApi(BaseModel):
 
 
 class NasVersion(BaseModel):
-    version: int = None
+    version: int
 
 
 class NasMethod(BaseModel):
     method: Literal[
         "login",
         "logout",
-        "query",
-        "list_share",
         "create",
         "rename",
         "start",
-        "status",
     ]
 
 
@@ -36,10 +33,31 @@ class NasSession(BaseModel):
 
 
 class LoginNasParams(NasApi, NasVersion, NasMethod, NasSession):
-    account: str = None
-    passwd: str = None
+    account: str
+    passwd: str
     format: Literal["cookie"]
 
 
 class LogoutNasParams(NasApi, NasVersion, NasMethod, NasSession):
     pass
+
+
+class CreateNasParams(NasApi, NasVersion, NasMethod):
+    folder_path: list[str]
+    name: list[str]
+    force_parent: bool = True
+
+
+class MoveNasParams(NasApi, NasVersion, NasMethod):
+    path: list[str]
+    dest_folder_path: list[str]
+    remove_src: bool = True
+
+
+class DeleteNasParams(NasApi, NasVersion, NasMethod):
+    path: list[str]
+
+
+class RenameNasParams(NasApi, NasVersion, NasMethod):
+    path: list[str]
+    name: list[str]
