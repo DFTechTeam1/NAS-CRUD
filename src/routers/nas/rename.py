@@ -29,7 +29,7 @@ async def rename_directory(schema: RenameFolder) -> ResponseDefault:
 
 router.add_api_route(
     methods=["POST"],
-    path="/nas/rename",
+    path="/rename",
     endpoint=rename_directory,
     summary="Rename existing directory on NAS.",
     status_code=status.HTTP_200_OK,
