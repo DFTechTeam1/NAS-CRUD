@@ -33,7 +33,7 @@ async def create_directory(schema: CreateFolder) -> ResponseDefault:
 
 router.add_api_route(
     methods=["POST"],
-    path="/nas/create",
+    path="/create",
     endpoint=create_directory,
     summary="Create new directory on NAS.",
     status_code=status.HTTP_200_OK,

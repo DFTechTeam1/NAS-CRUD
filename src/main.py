@@ -8,7 +8,7 @@ from src.secret import MIDDLEWARE_SECRET_KEY
 
 
 app = FastAPI(
-    root_path="/api/v1",
+    root_path="/api/v1/nas",
     title="NAS-CRUD",
     description="Backend service to integrate ERP with internal NAS.",
     version="1.0.0",
